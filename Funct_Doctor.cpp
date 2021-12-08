@@ -10,23 +10,23 @@ void Doctor::SetDoctor() {
 	this->Fio.SetFormat();
 
 	std::cout << " Должность: ";
-	std::getline(std::cin, this->dolgnost);
+	std::getline(std::cin, dolgnost);
 	
 	std::cout << " <Ввод завершён>" << std::endl;
 }
 
 FIO Doctor::GetFIO() {
-	return this->Fio;
+	return Fio;
 }
 
 std::string Doctor::GetDolgnost() {
-	return this->dolgnost;
+	return dolgnost;
 }
 
 void Doctor::PrintInfo() {
-	std::array<std::string, 4> fio = this->GetFIO().GetInfo();
+	std::array<std::string, 4> fio = GetFIO().GetInfo();
 	std::cout << " | ";
 	std::cout << std::setfill(' ') << std::setw(45) << fio[FIO::full_name];
 	std::cout << " | ";
-	std::cout << std::setw(20) << this->GetDolgnost() << " |" << std::endl;
+	std::cout << std::setw(20) << GetDolgnost() << " |" << std::endl;
 }
