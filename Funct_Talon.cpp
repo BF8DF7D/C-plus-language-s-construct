@@ -4,28 +4,6 @@
 #include <iomanip>
 
 //Функция создания структуры "Талон"
-bool SetBool(int*);
-void Talon::SetTalon(Doctor* medic) {
-
-	bool False_Input_Value;
-
-	std::cout << " <Ввод информации о талоне>" << std::endl;
-	Admission_Date.SetFormat();
-	Admission_Time.SetFormat();
-
-	do {
-		std::cout << " Номер кабинета: ";
-		False_Input_Value = SetBool(&kabinet);
-		if (False_Input_Value) {
-			std::cout << "\n <Номер кабинета введен некорректно>" << std::endl;
-		}
-	} while (False_Input_Value);
-
-	medic = medic;
-
-	std::cout << " <Ввод завершён>" << std::endl;
-}
-
 bool SetBool(int* kabinet) {
 	enum Limit_Value_for_Number {
 		Quantity_input_value = 1,
@@ -43,6 +21,50 @@ bool SetBool(int* kabinet) {
 	return False_Input_Value;
 }
 
+void Talon::SetTalon(Doctor* medic) {
+
+	bool False_Input_Value;
+
+	std::cout << " <Ввод информации о талоне>" << std::endl;
+	Admission_Date.SetFormat();
+	Admission_Time.SetFormat();
+
+	do {
+		std::cout << " Номер кабинета: ";
+		False_Input_Value = SetBool(&kabinet);
+		if (False_Input_Value) {
+			std::cout << "\n <Номер кабинета введен некорректно>" << std::endl;
+		}
+	} while (False_Input_Value);
+
+	this->medic = medic;
+
+	std::cout << " <Ввод завершён>" << std::endl;
+}
+
+void Talon::PrintInfo() {
+	std::array <std::string, 4> name = GetDoctor().GetFIO().GetInfo();
+	std::cout << " | "; 
+	std::cout << std::setfill(' ') << std::setw(45) << name[FIO::full_name];
+	std::cout << " | ";
+	Admission_Date.PrintInfo();
+	std::cout << " | ";
+	Admission_Time.PrintInfo();
+	std::cout << " | ";
+	std::cout << std::setfill('0') << std::setw(3) << GetKabinet() << " |";
+	std::cout.fill(' ');
+}
+
+Talon* Doctor::CreateTalon() {
+	Talon* AdmissionDay = new Talon();
+	AdmissionDay->SetTalon(this);
+	return AdmissionDay;
+}
+
+void Doctor::ChangeTime(Talon* talon) {
+	talon->Admission_Date.SetFormat();
+}
+
 Date Talon::GetDate() {
 	return Admission_Date;
 }
@@ -57,17 +79,4 @@ int Talon::GetKabinet() {
 
 Doctor Talon::GetDoctor() {
 	return *medic;
-}
-
-void Talon::PrintInfo() {
-	std::array <std::string, 4> name = GetDoctor().GetFIO().GetInfo();
-	std::cout << " | "; 
-	std::cout << std::setfill(' ') << std::setw(45) << name[FIO::full_name];
-	std::cout << " | ";
-	Admission_Date.PrintInfo();
-	std::cout << " | ";
-	Admission_Time.PrintInfo();
-	std::cout << " | ";
-	std::cout << std::setfill('0') << std::setw(3) << GetKabinet() << " |";
-	std::cout.fill(' ');
 }

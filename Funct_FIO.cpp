@@ -19,7 +19,7 @@ bool FIO::SetBool() {
 	std::getline(std::cin, fio[full_name]);
 	std::stringstream Name_elements_stream(fio[full_name]);
 	Name_elements_stream >> fio[last_name] >> fio[first_name] >> fio[patronynic];
-	bool False_Input_Value = this->fio[patronynic].empty() || !Name_elements_stream.eof();
+	bool False_Input_Value = fio[patronynic].empty() || !Name_elements_stream.eof();
 
 	return False_Input_Value;
 }

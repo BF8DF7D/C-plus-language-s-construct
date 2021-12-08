@@ -27,9 +27,10 @@ int main()
 
     std::cout << std::endl << std::endl;
 
-    Talon* talon = new Talon;
-    talon->SetTalon(doctor);
+    Talon* talon = doctor->CreateTalon();
+    talon->PrintInfo();
     std::cout << std::endl;
+    doctor->ChangeTime(talon);
     talon->PrintInfo();
 
     std::cout << std::endl << std::endl;
