@@ -10,18 +10,18 @@ void Talon::SetTalon(Doctor* medic) {
 	bool False_Input_Value;
 
 	std::cout << " <Ввод информации о талоне>" << std::endl;
-	this->Admission_Date.SetFormat();
-	this->Admission_Time.SetFormat();
+	Admission_Date.SetFormat();
+	Admission_Time.SetFormat();
 
 	do {
 		std::cout << " Номер кабинета: ";
-		False_Input_Value = SetBool(&this->kabinet);
+		False_Input_Value = SetBool(&kabinet);
 		if (False_Input_Value) {
 			std::cout << "\n <Номер кабинета введен некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);
 
-	this->medic = medic;
+	medic = medic;
 
 	std::cout << " <Ввод завершён>" << std::endl;
 }
@@ -44,34 +44,30 @@ bool SetBool(int* kabinet) {
 }
 
 Date Talon::GetDate() {
-	return this->Admission_Date;
+	return Admission_Date;
 }
 
 Time Talon::GetTime() {
-	return this->Admission_Time;
+	return Admission_Time;
 }
 
 int Talon::GetKabinet() {
-	return this->kabinet;
+	return kabinet;
 }
 
 Doctor Talon::GetDoctor() {
-	return *this->medic;
+	return *medic;
 }
 
 void Talon::PrintInfo() {
-	std::array <std::string, 4> name = this->GetDoctor().GetFIO().GetInfo();
-	enum Value_number_im_info_array {
-		full_name = 3
-	};
-
+	std::array <std::string, 4> name = GetDoctor().GetFIO().GetInfo();
 	std::cout << " | "; 
-	std::cout << std::setfill(' ') << std::setw(45) << name[full_name];
+	std::cout << std::setfill(' ') << std::setw(45) << name[FIO::full_name];
 	std::cout << " | ";
-	this->Admission_Date.PrintInfo();
+	Admission_Date.PrintInfo();
 	std::cout << " | ";
-	this->Admission_Time.PrintInfo();
+	Admission_Time.PrintInfo();
 	std::cout << " | ";
-	std::cout << std::setfill('0') << std::setw(3) << this->GetKabinet() << " |";
+	std::cout << std::setfill('0') << std::setw(3) << GetKabinet() << " |";
 	std::cout.fill(' ');
 }
