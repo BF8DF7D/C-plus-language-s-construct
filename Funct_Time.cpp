@@ -34,14 +34,18 @@ bool Time::SetBool() {
 	return False_Input_Value;
 }
 
-std::array<int, 2> Time::GetInfo() {
-	return time;
-}
-
 void Time::PrintInfo() {
 	std::array<int, 2> time = GetInfo();
 
 	std::cout << std::setfill('0') << std::setw(2) << time[hour] << ".";
 	std::cout << std::setfill('0') << std::setw(2) << time[minutes];
 	std::cout.fill(' ');
+}
+
+std::array<int, 2> Time::GetInfo() {
+	return time;
+}
+
+void Time::ConstrTime(std::array<int, 2> newtime) {
+	time = newtime;
 }

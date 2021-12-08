@@ -37,10 +37,6 @@ bool Date::SetBool(){
 	return False_Input_Value;
 }
 
-std::array<int, 3> Date::GetInfo() {
-	return date;
-}
-
 void Date::PrintInfo() {
 	std::array<int,3> date = GetInfo();
 
@@ -48,4 +44,12 @@ void Date::PrintInfo() {
 	std::cout << std::setfill('0') << std::setw(2) << date[mounth] << ".";
 	std::cout << std::setw(4) << date[year];
 	std::cout.fill(' ');
+}
+
+std::array<int, 3> Date::GetInfo() {
+	return date;
+}
+
+void Date::ConstrDate(std::array<int, 3> newdate) {
+	date = newdate;
 }

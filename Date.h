@@ -15,6 +15,7 @@ public: void PrintInfo();
 
 public: std::array<int, 3> GetInfo();
 
+public: void ConstrDate(std::array<int, 3> newdate);
 public: Date() {};
 public: ~Date() {};
 };

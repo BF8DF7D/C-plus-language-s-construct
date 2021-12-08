@@ -2,6 +2,7 @@
 #include "Talon.h"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 //Функция создания структуры "Талон"
 bool SetBool(int* kabinet) {
@@ -63,6 +64,45 @@ Talon* Doctor::CreateTalon() {
 
 void Doctor::ChangeTime(Talon* talon) {
 	talon->Admission_Date.SetFormat();
+}
+
+void operator+(Talon* talon, std::string time) {
+	for (int dot_position = 0; dot_position != -1;) {
+		dot_position = time.find('.');
+		if (dot_position != -1)
+			time.replace(dot_position, 1, " ");
+	}
+	std::stringstream stream(time);
+	int minutes = 0,
+		hours = 0;
+	stream >> hours >> minutes;
+	
+	std::array<int, 2> newtime = talon->Admission_Time.GetInfo();
+	std::array<int, 3> newdate = talon->Admission_Date.GetInfo();
+	
+	enum Limit_Value {
+		Quantity_minutes_for_hour = 60,
+		Maximum_value_for_minutes = 60,
+		Quantity_hours_for_days = 24,
+		Maximum_value_for_hours = 24,
+		Quantity_days_for_mounths = 31,
+		Maximum_value_for_days = 31,
+		Quantity_mounth_for_year = 12,
+		Maximum_value_for_mounth = 12,
+	};
+
+	newtime[Time::minutes] += minutes;
+	newtime[Time::hour] += newtime[Time::minutes] / Quantity_minutes_for_hour + hours;
+	newtime[Time::minutes] %= Maximum_value_for_minutes;
+
+	newdate[Date::day] += newtime[Time::hour] / Quantity_hours_for_days;
+	newtime[Time::hour] %= Maximum_value_for_hours;
+	newdate[Date::mounth] += newdate[Date::day] / Quantity_days_for_mounths;
+	newdate[Date::mounth] %= Maximum_value_for_mounth;
+	newdate[Date::year] += newdate[Date::mounth] / Quantity_mounth_for_year;
+
+	talon->Admission_Time.ConstrTime(newtime);
+	talon->Admission_Date.ConstrDate(newdate);
 }
 
 Date Talon::GetDate() {

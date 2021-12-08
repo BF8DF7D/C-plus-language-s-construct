@@ -30,6 +30,8 @@ int main()
     Talon* talon = doctor->CreateTalon();
     talon->PrintInfo();
     std::cout << std::endl;
+    talon + std::string("23.23");
+    talon->PrintInfo();
     doctor->ChangeTime(talon);
     talon->PrintInfo();
 
@@ -41,6 +43,7 @@ int main()
     two->GetLinkDisease() = *otravlenie;
     one->PrintInfo();
     std::cout << std::endl;
+    std::cout << " Измените время приёма" << std::endl;
     two->PrintInfo();
 
     std::cout << std::endl << std::endl;
@@ -48,7 +51,6 @@ int main()
     Pacient* bolnoi = new Pacient;
     bolnoi->SetPacient();
     std::cout << std::endl;
-
     bolnoi->GiveDiagnosis(one);
     bolnoi->GiveDiagnosis(two);
 
@@ -57,7 +59,7 @@ int main()
     std::cout << std::endl;
     bolnoi->DeleteDiagnosis(0);
     bolnoi->PrintInfo();
-
+    std::cout << std::endl;
     std::string Name_Disease;
     std::cout << " Введите наименования болезни, чтобы узнать есть ли оно в истории болезни пациента" << std::endl;
     for (bool Exid_Value = false; !Exid_Value;) {
@@ -72,7 +74,7 @@ int main()
                 std::cout << " В истории блезни пациента не числится \"" << Name_Disease << "\"" << std::endl;
         }
     }
-
+    std::cout << std::endl;
     bolnoi->DeleteAll();
     bolnoi->PrintInfo();
 

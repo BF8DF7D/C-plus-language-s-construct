@@ -14,6 +14,7 @@ public: void PrintInfo();
 
 public: std::array<int, 2> GetInfo();
 	   
+public: void ConstrTime(std::array<int, 2>);
 public: Time() {};
 public: ~Time() {};
 };
