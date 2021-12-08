@@ -9,8 +9,8 @@ void Diagnosis::SetDiadnosis(Talon* talon, Disease* disease) {
 	this->disease = disease;
 }
 void Diagnosis::PrintInfo() {
-	Date date = this->talon->GetDate();
-	Time time = this->talon->GetTime();
+	Date date = talon->GetDate();
+	Time time = talon->GetTime();
 	std::array <std::string, 4> name = this->GetTalon().GetDoctor().GetFIO().GetInfo();
 
 	std::cout << " Доктор: " << name[FIO::full_name] << std::endl;
@@ -28,17 +28,17 @@ void Diagnosis::PrintInfo() {
 
 bool Diagnosis::Empty() {
 	bool Empty_Diagnosis = true;
-	if (this->talon || this->disease)
+	if (talon || disease)
 		Empty_Diagnosis = false;
 	return Empty_Diagnosis;
 }
 
 Talon Diagnosis::GetTalon() {
-	return *this->talon;
+	return *talon;
 }
 
 Disease Diagnosis::GetDisease() {
-	return *this->disease;
+	return *disease;
 }
 
 Disease* Diagnosis::GetAddressDisease() {
@@ -50,6 +50,6 @@ Disease& Diagnosis::GetLinkDisease() {
 }
 
 Diagnosis::Diagnosis() {
-	this->talon = nullptr;
-	this->disease = nullptr;
+	talon = nullptr;
+	disease = nullptr;
 }
