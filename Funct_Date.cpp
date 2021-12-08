@@ -7,7 +7,7 @@ void Date::SetFormat() {
 	bool False_Input_Value;
 	do {
 		std::cout << " Дата: ";
-		False_Input_Value = this->SetBool();
+		False_Input_Value = SetBool();
 		if (False_Input_Value) {
 			std::cout << "\n <Дата введена некорректно>" << std::endl;
 		}
@@ -25,10 +25,10 @@ bool Date::SetBool(){
 		Clean_input_stream = '\n'
 	};
 
-	bool False_Input_Value = scanf("%d.%d.%d", &this->date[day], &this->date[mounth], &this->date[year]) != Quantity_input_value
-		|| (this->date[day] <= Minimum_for_days_and_months || this->date[day] > Maximum_day)
-		|| (this->date[mounth] <= Minimum_for_days_and_months || this->date[mounth] > Maximum_mounth)
-		|| (this->date[year] <= Minimum_value_for_years || this->date[year] > Maximum_years)
+	bool False_Input_Value = scanf("%d.%d.%d", &date[day], &date[mounth], &date[year]) != Quantity_input_value
+		|| (date[day] <= Minimum_for_days_and_months || date[day] > Maximum_day)
+		|| (date[mounth] <= Minimum_for_days_and_months || date[mounth] > Maximum_mounth)
+		|| (date[year] <= Minimum_value_for_years || date[year] > Maximum_years)
 		|| std::cin.get() != Clean_input_stream;
 	
 	if (False_Input_Value)
@@ -38,11 +38,11 @@ bool Date::SetBool(){
 }
 
 std::array<int, 3> Date::GetInfo() {
-	return this->date;
+	return date;
 }
 
 void Date::PrintInfo() {
-	std::array<int,3> date = this->GetInfo();
+	std::array<int,3> date = GetInfo();
 
 	std::cout << std::setfill('0') << std::setw(2) << date[day] << ".";
 	std::cout << std::setfill('0') << std::setw(2) << date[mounth] << ".";
