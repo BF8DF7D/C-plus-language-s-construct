@@ -9,7 +9,7 @@ void Disease::SetDisease() {
 
 	std::cout << " <Ввод информации о заболевании>" << std::endl;
 	std::cout << " Наименование: ";
-	std::getline(std::cin, this->Name_Disease);
+	std::getline(std::cin, Name_Disease);
 	std::cin.clear();
 	
 	std::cout << " Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции нажмите Enter" << std::endl;
