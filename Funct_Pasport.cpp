@@ -6,7 +6,7 @@ void Pasport::SetFormat(){
 	bool False_Input_Value;
 	do {
 		std::cout << " Паспорт: ";
-		False_Input_Value = this->SetBool();
+		False_Input_Value = SetBool();
 		if (False_Input_Value) {
 			std::cout << "\n <Паспортные данные введены некорректно>" << std::endl;
 		}
@@ -21,9 +21,9 @@ bool Pasport::SetBool() {
 		Maximum_for_number = 999999,
 		Clean_input_stream = '\n'
 	};
-		bool False_Input_Value = scanf("%d_%d", &this->pasport[series], &this->pasport[number]) != Quantity_inpyt_value
-		|| (this->pasport[series] <= Minimum_value_for_all || this->pasport[series] > Maximum_for_series)
-		|| (this->pasport[number]< Minimum_value_for_all || this->pasport[number] > Maximum_for_number)
+		bool False_Input_Value = scanf("%d_%d", &pasport[series], &pasport[number]) != Quantity_inpyt_value
+		|| (pasport[series] <= Minimum_value_for_all || pasport[series] > Maximum_for_series)
+		|| (pasport[number]< Minimum_value_for_all || pasport[number] > Maximum_for_number)
 		|| std::cin.get() != Clean_input_stream;
 	
 	if (False_Input_Value)
@@ -33,7 +33,7 @@ bool Pasport::SetBool() {
 }
 
 void Pasport::PrintInfo() {
-	std::array<int, 2> pasport = this->GetInfo();
+	std::array<int, 2> pasport = GetInfo();
 	std::cout << std::setfill('0') << std::setw(4) << pasport[series];
 	std::cout << " ";
 	std::cout << std::setfill('0') << std::setw(6) << pasport[number];
@@ -41,5 +41,5 @@ void Pasport::PrintInfo() {
 }
 
 std::array<int, 2> Pasport::GetInfo() {
-	return this->pasport;
+	return pasport;
 }
