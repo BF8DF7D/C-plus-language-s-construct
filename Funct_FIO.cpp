@@ -8,7 +8,7 @@ void FIO::SetFormat() {
 	bool False_Input_Value;
 	do {
 		std::cout << " ФИО: ";
-		False_Input_Value = this->SetBool();
+		False_Input_Value = SetBool();
 		if (False_Input_Value) {
 			std::cout << "\n <ФИО введено некорректно>" << std::endl;
 		}
@@ -16,15 +16,14 @@ void FIO::SetFormat() {
 }
 
 bool FIO::SetBool() {
-	std::getline(std::cin, this->fio[full_name]);
-	std::cin.clear();
-	std::stringstream Name_elements_stream(this->fio[full_name]);
-	Name_elements_stream >> this->fio[last_name] >> this->fio[first_name] >> this->fio[patronynic];
+	std::getline(std::cin, fio[full_name]);
+	std::stringstream Name_elements_stream(fio[full_name]);
+	Name_elements_stream >> fio[last_name] >> fio[first_name] >> fio[patronynic];
 	bool False_Input_Value = this->fio[patronynic].empty() || !Name_elements_stream.eof();
 
 	return False_Input_Value;
 }
 
 std::array<std::string, 4> FIO::GetInfo() {
-	return this->fio;
+	return fio;
 }
