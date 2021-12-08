@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Date">
+    <Position X="5.5" Y="8.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Date::Value_number_in_Date_array">
+        <TypeIdentifier>
+          <NewMemberFileName>Date.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAEAAIAAAAAAAAEABCAAAAQAAAAA=</HashCode>
+      <FileName>Date.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Disease">
+    <Position X="11.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAEAAAAAEAIAAAAAAQAAAAAAAAAAAEABgA=</HashCode>
+      <FileName>Disease.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doctor">
+    <Position X="3.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACEAEACAAAAAAAAIAQAIAAAAAAAAAg=</HashCode>
+      <FileName>Doctor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FIO">
+    <Position X="1.25" Y="6.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="FIO::Value_number_in_FIO_array">
+        <TypeIdentifier>
+          <NewMemberFileName>FIO.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>CgAAAAgAAIAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>FIO.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pasport">
+    <Position X="13.5" Y="14.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Pasport::Value_number_in_pasport_array">
+        <TypeIdentifier>
+          <NewMemberFileName>Pasport.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAgAAAAEAAIAAAAAAAAEAAAAEAAAABAAA=</HashCode>
+      <FileName>Pasport.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Talon">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAAEAQAAJAkAAAAAAAAAAAAAIAAAAAABACQA=</HashCode>
+      <FileName>Talon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Time">
+    <Position X="7.25" Y="8.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Time::Value_number_in_time_array">
+        <TypeIdentifier>
+          <NewMemberFileName>Time.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAABAAgAAAAAAAAAAEAAIAAAAAAAAEAAAAAAAEAAAQA=</HashCode>
+      <FileName>Time.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diagnosis">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAQAAAAAABAAEMIAAAAAAAAAACAAAAABAAAAAAA=</HashCode>
+      <FileName>Diagnosis.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Pacient">
+    <Position X="15.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAEAQADkAEQCAACAQAgAAQAAABkAAAAACAA=</HashCode>
+      <FileName>Pacient.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
