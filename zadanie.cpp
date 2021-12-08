@@ -13,6 +13,7 @@ int main()
 
     prosrtuda->SetDisease();
     std::cout << std::endl;
+    
     otravlenie->SetDisease();
     std::cout << std::endl;
     prosrtuda->PrintInfo();
@@ -35,8 +36,10 @@ int main()
 
     Diagnosis *one = new Diagnosis, 
         *two = new Diagnosis;
-    one->SetDiadnosis(talon, prosrtuda);
-    two->SetDiadnosis(talon, otravlenie);
+    *one->GetAddressDisease() = *prosrtuda;
+    two->GetLinkDisease() = *otravlenie;
+    one->PrintInfo();
+    std::cout << std::endl;
     two->PrintInfo();
 
     std::cout << std::endl << std::endl;

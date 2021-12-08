@@ -11,6 +11,8 @@ public: bool Empty();
 
 public: Talon GetTalon();
 public: Disease GetDisease();
+public: Disease* GetAddressDisease();
+public: Disease& GetLinkDisease();
 
 public: Diagnosis();
 public: ~Diagnosis() {};

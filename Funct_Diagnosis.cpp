@@ -3,31 +3,11 @@
 #include <iomanip>
 
 
-Diagnosis::Diagnosis() {
-	this->talon = nullptr;
-	this->disease = nullptr;
-}
-
-bool Diagnosis::Empty() {
-	bool Empty_Diagnosis = true;
-	if (this->talon || this->disease)
-		Empty_Diagnosis = false;
-	return Empty_Diagnosis;
-}
 
 void Diagnosis::SetDiadnosis(Talon* talon, Disease* disease) {
 	this->talon = talon;
 	this->disease = disease;
 }
-
-Talon Diagnosis::GetTalon() {
-	return *this->talon;
-}
-
-Disease Diagnosis::GetDisease() {
-	return *this->disease;
-}
-
 void Diagnosis::PrintInfo() {
 	Date date = this->talon->GetDate();
 	Time time = this->talon->GetTime();
@@ -44,4 +24,32 @@ void Diagnosis::PrintInfo() {
 	std::cout << std::setfill('0') << std::setw(3) << this->GetTalon().GetKabinet() << std::endl;
 	std::cout.fill(' ');
 	this->GetDisease().PrintInfo();
+}
+
+bool Diagnosis::Empty() {
+	bool Empty_Diagnosis = true;
+	if (this->talon || this->disease)
+		Empty_Diagnosis = false;
+	return Empty_Diagnosis;
+}
+
+Talon Diagnosis::GetTalon() {
+	return *this->talon;
+}
+
+Disease Diagnosis::GetDisease() {
+	return *this->disease;
+}
+
+Disease* Diagnosis::GetAddressDisease() {
+	return disease;
+}
+
+Disease& Diagnosis::GetLinkDisease() {
+	return *disease;
+}
+
+Diagnosis::Diagnosis() {
+	this->talon = nullptr;
+	this->disease = nullptr;
 }
