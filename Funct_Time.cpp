@@ -6,7 +6,7 @@ void Time::SetFormat() {
 	bool False_Input_Value;
 	do {
 		std::cout << " Время: ";
-		False_Input_Value = this->SetBool();
+		False_Input_Value = SetBool();
 		if (False_Input_Value) {
 			std::cout << "\n <Время введено некорректно>" << std::endl;
 		}
@@ -23,9 +23,9 @@ bool Time::SetBool() {
 		Clean_input_stream = '\n'
 	};
 	
-	bool False_Input_Value = scanf("%d.%d", &this->time[hour], &this->time[minutes]) != Quantity_input_value
-		|| (this->time[hour] < Minimum_value_for_all || this->time[hour] > Maximum_hour)
-		|| (this->time[minutes] < Minimum_value_for_all || this->time[minutes] > Maximum_minutes)
+	bool False_Input_Value = scanf("%d.%d", &time[hour], &time[minutes]) != Quantity_input_value
+		|| (time[hour] < Minimum_value_for_all || time[hour] > Maximum_hour)
+		|| (time[minutes] < Minimum_value_for_all || time[minutes] > Maximum_minutes)
 		|| std::cin.get() != Clean_input_stream;
 	
 	if (False_Input_Value)
@@ -35,11 +35,11 @@ bool Time::SetBool() {
 }
 
 std::array<int, 2> Time::GetInfo() {
-	return this->time;
+	return time;
 }
 
 void Time::PrintInfo() {
-	std::array<int, 2> time = this->GetInfo();
+	std::array<int, 2> time = GetInfo();
 
 	std::cout << std::setfill('0') << std::setw(2) << time[hour] << ".";
 	std::cout << std::setfill('0') << std::setw(2) << time[minutes];
