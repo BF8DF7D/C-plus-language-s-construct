@@ -36,24 +36,26 @@ int main()
     talon + std::string("23.23");
     talon->PrintInfo();
     std::cout << std::endl;
+    std::cout << " Измените время приёма" << std::endl;
     doctor->ChangeTime(talon);
     talon->PrintInfo();
     std::cout << std::endl;
     (++(*talon)).PrintInfo();
     std::cout << std::endl;
     ((*talon)++).PrintInfo();
-    (talon)->PrintInfo();
+    talon->PrintInfo();
     std::cout << std::endl;
 
     std::cout << std::endl << std::endl;
 
     Diagnosis *one = new Diagnosis, 
-        *two = new Diagnosis;
-    *one->GetAddressDisease() = *prosrtuda;
-    two->GetLinkDisease() = *otravlenie;
-    one->PrintInfo();
-    std::cout << std::endl;
-    std::cout << " Измените время приёма" << std::endl;
+        *two = new Diagnosis;   
+    one->SetDiadnosis(talon, prosrtuda);
+    two->SetDiadnosis(talon, otravlenie);
+    one->GetAddressDisease();
+    one->GetLinkDisease();
+    std::cout << std::endl << std::endl;
+
     two->PrintInfo();
 
     std::cout << std::endl << std::endl;

@@ -42,10 +42,16 @@ Disease Diagnosis::GetDisease() {
 }
 
 Disease* Diagnosis::GetAddressDisease() {
+	std::cout << " Адрес указателя:       ";
+	std::cout << &disease << std::endl;
+	std::cout << " Адрес в указателе:     ";
+	std::cout << disease << std::endl;
 	return disease;
 }
 
 Disease& Diagnosis::GetLinkDisease() {
+	std::cout << " Возвращение по ссылке: ";
+	std::cout << &*disease << std::endl;
 	return *disease;
 }
 
