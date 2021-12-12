@@ -17,7 +17,8 @@ void Disease::SetDisease() {
 	do {
 		std::cout << " : ";
 		std::getline(std::cin, symptom);
-		Disease_Symptoms.push_back(symptom);
+		if (!symptom.empty())
+			Disease_Symptoms.push_back(symptom);
 	} while (!symptom.empty());
 }
 

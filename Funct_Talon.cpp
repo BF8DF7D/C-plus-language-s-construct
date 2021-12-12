@@ -54,10 +54,11 @@ void Talon::PrintInfo() {
 	std::cout << " | ";
 	std::cout << std::setfill('0') << std::setw(3) << GetKabinet() << " |";
 	std::cout.fill(' ');
+	std::cout << std::endl;
 }
 
 Talon* Doctor::CreateTalon() {
-	Talon* AdmissionDay = new Talon();
+	Talon* AdmissionDay = new Talon;
 	AdmissionDay->SetTalon(this);
 	return AdmissionDay;
 }
@@ -109,7 +110,7 @@ Talon operator++(Talon& talon) {
 Talon operator++(Talon& talon, int) {
 	Talon OldValue = talon;
 	talon.kabinet += 1;
-	return talon;
+	return OldValue;
 }
 
 Date Talon::GetDate() {
