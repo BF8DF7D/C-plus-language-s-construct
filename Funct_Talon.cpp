@@ -82,27 +82,34 @@ void operator+(Talon* talon, std::string time) {
 	
 	enum Limit_Value {
 		Quantity_minutes_for_hour = 60,
-		Maximum_value_for_minutes = 60,
 		Quantity_hours_for_days = 24,
-		Maximum_value_for_hours = 24,
 		Quantity_days_for_mounths = 31,
-		Maximum_value_for_days = 31,
 		Quantity_mounth_for_year = 12,
-		Maximum_value_for_mounth = 12,
 	};
 
 	newtime[Time::minutes] += minutes;
 	newtime[Time::hour] += newtime[Time::minutes] / Quantity_minutes_for_hour + hours;
-	newtime[Time::minutes] %= Maximum_value_for_minutes;
+	newtime[Time::minutes] %= Quantity_minutes_for_hour;
 
 	newdate[Date::day] += newtime[Time::hour] / Quantity_hours_for_days;
-	newtime[Time::hour] %= Maximum_value_for_hours;
+	newtime[Time::hour] %= Quantity_hours_for_days;
 	newdate[Date::mounth] += newdate[Date::day] / Quantity_days_for_mounths;
-	newdate[Date::mounth] %= Maximum_value_for_mounth;
+	newdate[Date::mounth] %= Quantity_days_for_mounths;
 	newdate[Date::year] += newdate[Date::mounth] / Quantity_mounth_for_year;
 
 	talon->Admission_Time.ConstrTime(newtime);
 	talon->Admission_Date.ConstrDate(newdate);
+}
+
+Talon operator++(Talon& talon) {
+	talon.kabinet += 1;
+	return talon;
+}
+
+Talon operator++(Talon& talon, int) {
+	Talon OldValue = talon;
+	talon.kabinet += 1;
+	return talon;
 }
 
 Date Talon::GetDate() {

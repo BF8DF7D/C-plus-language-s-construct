@@ -8,6 +8,9 @@
 
 int main()
 {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
     Disease* prosrtuda = new Disease, 
         *otravlenie = new Disease;
 
@@ -32,8 +35,15 @@ int main()
     std::cout << std::endl;
     talon + std::string("23.23");
     talon->PrintInfo();
+    std::cout << std::endl;
     doctor->ChangeTime(talon);
     talon->PrintInfo();
+    std::cout << std::endl;
+    (++(*talon)).PrintInfo();
+    std::cout << std::endl;
+    ((*talon)++).PrintInfo();
+    (talon)->PrintInfo();
+    std::cout << std::endl;
 
     std::cout << std::endl << std::endl;
 
